@@ -1,0 +1,33 @@
+&CONTROL
+  calculation  = 'scf'
+  prefix       = 'chloride'
+  pseudo_dir   = './pseudo/'
+  outdir       = './tmp/'
+  tprnfor      = .true.
+  tstress      = .false.
+/
+&SYSTEM
+  ibrav        = 1
+  celldm(1)    = 30.0
+  nat          = 1
+  ntyp         = 1
+  ecutwfc      = 40.0
+  ecutrho      = 320.0
+  occupations  = 'smearing'
+  smearing     = 'gaussian'
+  degauss      = 0.005
+  assume_isolated = 'mt'
+  tot_charge   = -1.0
+/
+&ELECTRONS
+  conv_thr     = 1.0d-8
+  mixing_beta  = 0.3
+/
+
+ATOMIC_SPECIES
+  Cl   35.453  Cl.pbe-n-rrkjus_psl.1.0.0.UPF
+
+K_POINTS gamma
+
+ATOMIC_POSITIONS angstrom
+  Cl    8.000   8.000   8.000
