@@ -1,0 +1,49 @@
+&CONTROL
+  calculation  = 'relax'
+  prefix       = 'cisplatin'
+  pseudo_dir   = './pseudo/'
+  outdir       = './tmp/'
+  tprnfor      = .true.
+  tstress      = .false.
+  forc_conv_thr = 1.0d-4
+/
+&SYSTEM
+  ibrav        = 1
+  celldm(1)    = 30.0
+  nat          = 11
+  ntyp         = 4
+  ecutwfc      = 40.0
+  ecutrho      = 320.0
+  occupations  = 'smearing'
+  smearing     = 'gaussian'
+  degauss      = 0.005
+  assume_isolated = 'mt'
+/
+&ELECTRONS
+  conv_thr     = 1.0d-8
+  mixing_beta  = 0.3
+/
+&IONS
+  ion_dynamics = 'bfgs'
+/
+
+ATOMIC_SPECIES
+  Pt  195.084  Pt.pbe-n-rrkjus_psl.1.0.0.UPF
+  Cl   35.453  Cl.pbe-n-rrkjus_psl.1.0.0.UPF
+  N    14.007  N.pbe-n-rrkjus_psl.1.0.0.UPF
+  H     1.008  H.pbe-rrkjus_psl.1.0.0.UPF
+
+K_POINTS gamma
+
+ATOMIC_POSITIONS angstrom
+  Pt    8.000   8.000   8.000
+  Cl   10.330   8.000   8.000
+  Cl    8.000  10.330   8.000
+  N     5.950   8.000   8.000
+  N     8.000   5.950   8.000
+  H     5.350   8.820   8.470
+  H     5.350   7.180   8.470
+  H     5.350   8.000   7.060
+  H     8.820   5.350   8.470
+  H     7.180   5.350   8.470
+  H     8.000   5.350   7.060
